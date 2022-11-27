@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s, t) {
+        let answer = 0;
+        const sn = s.length;
+        const tn = t.length;
+        for (let i = 0; i <= sn - tn; i++) {
+          if (
+            s
+              .substring(i, i + tn)
+              .split("")
+              .sort()
+              .join("")
+              .includes(t)
+          )
+            answer++;
+        }
+
+        return answer;
+      }
+
+      let a = "bacaAacba";
+      let b = "abc";
+      console.log(solution(a, b));
+    </script>
+  </body>
+</html>
