@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(need, plan) {
+        let answer = "YES";
+        let splited = need.split("");
+        for (let i = 0; i < plan.length; i++) {
+          if (plan[i] === splited[0]) {
+            splited.shift();
+          }
+        }
+        if (splited.length !== 0) {
+          answer = "NO";
+        }
+
+        return answer;
+      }
+
+      let need = "CBA";
+      let plan = "CBDAGE";
+      console.log(solution(need, plan));
+    </script>
+  </body>
+</html>
