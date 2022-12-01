@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(times) {
+        let answer = 0;
+        const arr = [];
+        let max = times.reduce((a, c) => (a[1] < c[1] ? c : a))[1];
+        for (let i = 0; i <= max; i++) {
+          arr.push(0);
+        }
+
+        for (let i = 0; i < times.length; i++) {
+          for (let j = times[i][0]; j < times[i][1]; j++) {
+            arr[j]++;
+          }
+        }
+        answer = Math.max(...arr);
+
+        return answer;
+      }
+
+      let arr = [
+        [14, 18],
+        [12, 15],
+        [15, 20],
+        [20, 30],
+        [5, 15],
+      ];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
