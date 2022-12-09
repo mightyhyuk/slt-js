@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n) {
+        function dfs(v) {
+          if (v > 7) return;
+
+          console.log(v);
+          dfs(2 * v);
+          dfs(2 * v + 1);
+        }
+        dfs(n);
+      }
+
+      solution(1);
+    </script>
+  </body>
+</html>
