@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(c, arr) {
+        let answer;
+        const sum = arr.reduce((a, c) => a + c); // 275
+        const n = arr.length; // 5
+        arr.sort((a, b) => a - b);
+        console.log(arr);
+
+        function DFS(lev, sum) {
+          if (sum - arr[lev] < c) {
+            answer = sum - arr[lev];
+          } else {
+            DFS(lev + 1, sum - arr[lev]);
+            DFS(lev + 1, sum);
+          }
+        }
+
+        DFS(0, sum);
+
+        return answer;
+      }
+
+      let arr = [81, 58, 42, 33, 61];
+      console.log(solution(259, arr));
+    </script>
+  </body>
+</html>
