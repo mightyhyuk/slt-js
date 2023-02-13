@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s, e) {
+        let answer = 0;
+        const queue = [];
+        const ch = Array(10001).fill(0);
+        const count = Array(10001).fill(0);
+
+        queue.push(s);
+        ch[s] = 1;
+
+        while (queue.length) {
+          const v = queue.shift();
+          for (let nv of [v + 1, v - 1, v + 5]) {
+            if (nv === e) return count[v] + 1;
+            if (nv >= 1 && nv <= 10000 && ch[nv] === 0) {
+              ch[nv] = 1;
+              queue.push(nv);
+              count[nv] = count[v] + 1;
+            }
+          }
+        }
+
+        return answer;
+      }
+
+      console.log(solution(8, 3));
+    </script>
+  </body>
+</html>
