@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(m, arr) {
+        let answer;
+        const n = arr.length;
+        const scores = [];
+
+        function DFS(lev, time, score) {
+          if (time < 0 || lev === n) {
+            return;
+          }
+          if (time === 0) {
+            scores.push(score);
+          } else {
+            DFS(lev + 1, time, score);
+            DFS(lev + 1, time - arr[lev][1], score + arr[lev][0]);
+          }
+        }
+
+        DFS(0, 20, 0);
+
+        answer = Math.max(...scores);
+
+        return answer;
+      }
+
+      let arr = [
+        [10, 5],
+        [25, 12],
+        [15, 8],
+        [6, 3],
+        [7, 4],
+      ];
+      console.log(solution(20, arr));
+    </script>
+  </body>
+</html>
