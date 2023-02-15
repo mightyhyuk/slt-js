@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(m, coins) {
+        let answer = 0;
+        let rest = m;
+
+        coins.sort((a, b) => a - b).reverse();
+
+        let i = 0;
+        while (rest > 0) {
+          if (coins[i] <= rest) {
+            rest = rest - coins[i];
+            answer++;
+          } else {
+            i++;
+          }
+        }
+
+        return answer;
+      }
+
+      let arr = [1, 2, 5];
+      console.log(solution(15, arr));
+    </script>
+  </body>
+</html>
