@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let answer = 0;
+        const n = arr.length;
+        arr.sort((a, b) => a[0] - b[0]);
+        console.log(arr);
+
+        for (let i = 0; i < n; i++) {
+          let k = i;
+          let count = 1;
+          for (let j = i + 1; j < n; j++) {
+            if (arr[k][1] <= arr[j][0]) {
+              k = j;
+              count++;
+            }
+          }
+
+          if (answer < count) {
+            answer = count;
+          }
+        }
+
+        return answer;
+      }
+
+      let arr = [
+        [1, 4],
+        [2, 3],
+        [3, 5],
+        [4, 6],
+        [5, 7],
+      ];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
