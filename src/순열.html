@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(m, arr) {
+        arr.sort((a, b) => a - b);
+        const n = arr.length;
+        const temp = [];
+        let ch = Array(n).fill(0);
+
+        function dfs(lev) {
+          if (lev === m) {
+            console.log(temp);
+          } else {
+            for (let i = 0; i < n; i++) {
+              if (ch[i] === 0) {
+                ch[i] = 1;
+                temp[lev] = arr[i];
+                dfs(lev + 1);
+                ch[i] = 0;
+              }
+            }
+          }
+        }
+
+        dfs(0);
+      }
+
+      let arr = [3, 6, 9];
+      console.log(solution(2, arr));
+    </script>
+  </body>
+</html>
