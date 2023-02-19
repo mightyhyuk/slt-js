@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n) {
+        const temp = [];
+
+        function DFS(lev, arr) {
+          if (lev > 3) {
+            if (arr.length === 0) return;
+            console.log(arr);
+          } else {
+            const original = [...arr];
+            arr.push(lev);
+            DFS(lev + 1, arr);
+            DFS(lev + 1, original);
+          }
+        }
+
+        DFS(1, temp);
+      }
+
+      solution(3);
+    </script>
+  </body>
+</html>
